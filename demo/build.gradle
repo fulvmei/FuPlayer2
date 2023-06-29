@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.chengfu.android.fuplayer2.demo"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -25,19 +25,31 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildFeatures {
-        viewBinding true
-    }
+//    buildFeatures {
+//        viewBinding true
+//    }
 }
 
 dependencies {
+
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+    implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+    implementation ('com.squareup.picasso:picasso:2.71828'){
+        exclude module: 'exifinterface'
+    }
 
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment:2.5.0'
     implementation 'androidx.navigation:navigation-ui:2.5.0'
-    implementation project(path: ':library')
+    implementation project(path: ':libraries:session')
+    implementation project(path: ':libraries:ui')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

@@ -3,10 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/demo/src/main/res/drawable/ic_launcher_background.xml" value="0.164" />
         <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/demo/src/main/res/layout/activity_main.xml" value="0.16032608695652173" />
+        <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/demo/src/main/res/layout/activity_media_list.xml" value="0.14990942028985507" />
+        <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/demo/src/main/res/layout/activity_player.xml" value="0.14990942028985507" />
         <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/demo/src/main/res/layout/fragment_first.xml" value="0.16032608695652173" />
         <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/demo/src/main/res/layout/fu_player_control_view.xml" value="0.10797174571140263" />
+        <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/demo/src/main/res/layout/item_media.xml" value="0.14990942028985507" />
         <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/demo/src/main/res/layout/player_control_view.xml" value="0.196875" />
+        <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/demo/src/main/res/menu/media_list.xml" value="0.15052083333333333" />
+        <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/libraries/ui/src/main/res/drawable/fu_ic_play.xml" value="0.1995" />
+        <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/libraries/ui/src/main/res/layout/default_player_view.xml" value="0.2418478260869565" />
+        <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/libraries/ui/src/main/res/layout/fu_player_control_view.xml" value="0.18645833333333334" />
+        <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/libraries/ui/src/main/res/layout/fu_player_view.xml" value="0.10925925925925926" />
         <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/library/src/main/res/drawable/fu_ic_play.xml" value="0.1025" />
         <entry key="..\:/ChengFu/AndroidStudioProjects/FuPlayer2/library/src/main/res/layout/fu_player_control_view.xml" value="0.16847826086956522" />
       </map>

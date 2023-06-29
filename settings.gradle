@@ -14,4 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "FuPlayer2"
 include ':demo'
-include ':library'
+include ':libraries:ui'
+include ':libraries:session'
