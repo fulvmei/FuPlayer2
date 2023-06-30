@@ -232,7 +232,12 @@ public class ScreenRotationHelper {
     private class PlayerEventsListener implements Player.Listener {
 
         @Override
-        public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+        public void onPlaybackStateChanged(int playbackState) {
+            switchOrientationState();
+        }
+
+        @Override
+        public void onPlayWhenReadyChanged(boolean playWhenReady, int reason) {
             switchOrientationState();
         }
 

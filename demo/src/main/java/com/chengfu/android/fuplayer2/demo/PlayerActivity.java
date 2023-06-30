@@ -14,6 +14,7 @@ import androidx.media3.common.MediaMetadata;
 import androidx.media3.common.Metadata;
 import androidx.media3.common.Player;
 import androidx.media3.common.Timeline;
+import androidx.media3.common.util.UnstableApi;
 import androidx.media3.common.util.Util;
 import androidx.media3.datasource.DefaultHttpDataSource;
 import androidx.media3.exoplayer.ExoPlayer;
@@ -110,27 +111,20 @@ public class PlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 player.seekToNext();
-                Timber.e("rrrrr hasNextWindow=" + player.hasNextWindow());
-                Timber.e("rrrrr hasPreviousWindow=" + player.hasPreviousWindow());
-                Timber.e("rrrrr isCurrentWindowDynamic=" + player.isCurrentWindowDynamic());
-                Timber.e("rrrrr isCurrentWindowLive=" + player.isCurrentWindowLive());
-                Timber.e("rrrrr isCurrentWindowSeekable=" + player.isCurrentWindowSeekable());
-                Timber.e("rrrrr getCurrentLiveOffset=" + player.getCurrentLiveOffset());
-
             }
         });
 
         findViewById(R.id.previous).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                player.previous();
+                player.seekToPreviousMediaItem();
             }
         });
 
         findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                player.next();
+                player.seekToNextMediaItem();
             }
         });
 
@@ -244,15 +238,15 @@ public class PlayerActivity extends AppCompatActivity {
 
 
     private void initPlayer() {
-        DefaultHttpDataSource.Factory dataSourceFactory = new DefaultHttpDataSource.Factory();
-        dataSourceFactory.setUserAgent(Util.getUserAgent(this, getPackageName()));
-        Map<String, String> requestProperties = new HashMap<>();
-        requestProperties.put("referer", "y1w6kj.gzstv.com");
-        dataSourceFactory.setDefaultRequestProperties(requestProperties);
+//        DefaultHttpDataSource.Factory dataSourceFactory = new DefaultHttpDataSource.Factory();
+//        dataSourceFactory.setUserAgent(Util.getUserAgent(this, getPackageName()));
+//        Map<String, String> requestProperties = new HashMap<>();
+//        requestProperties.put("referer", "y1w6kj.gzstv.com");
+//        dataSourceFactory.setDefaultRequestProperties(requestProperties);
 
-        DefaultMediaSourceFactory mediaSourceFactory = new DefaultMediaSourceFactory(dataSourceFactory);
+//        DefaultMediaSourceFactory mediaSourceFactory = new DefaultMediaSourceFactory(dataSourceFactory);
 
-        SimpleExoPlayer exoPlayer = new SimpleExoPlayer.Builder(this).setMediaSourceFactory(mediaSourceFactory).build();
+//        SimpleExoPlayer exoPlayer = new SimpleExoPlayer.Builder(this).setMediaSourceFactory(mediaSourceFactory).build();
 
         player =new ExoPlayer.Builder(this).build();
         player.setRepeatMode(Player.REPEAT_MODE_OFF);
@@ -267,13 +261,13 @@ public class PlayerActivity extends AppCompatActivity {
                 if (timeline.isEmpty()) {
                     return;
                 }
-                timeline.getWindow(player.getCurrentWindowIndex(), window);
-                timeline.getPeriod(player.getCurrentWindowIndex(), period);
+                timeline.getWindow(player.getCurrentMediaItemIndex(), window);
+                timeline.getPeriod(player.getCurrentMediaItemIndex(), period);
                 try {
                     ja.put("getWindowCount", timeline.getWindowCount());
                     ja.put("getPeriodCount", timeline.getPeriodCount());
                     ja.put("getCurrentPeriodIndex", player.getCurrentPeriodIndex());
-                    ja.put("getCurrentWindowIndex", player.getCurrentWindowIndex());
+                    ja.put("getCurrentWindowIndex", player.getCurrentMediaItemIndex());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -290,15 +284,6 @@ public class PlayerActivity extends AppCompatActivity {
             public void onIsPlayingChanged(boolean isPlaying) {
             }
 
-            @Override
-            public void onPositionDiscontinuity(int reason) {
-                Timber.e("onPositionDiscontinuity reason=" + reason);
-            }
-
-            @Override
-            public void onMetadata(Metadata metadata) {
-                Timber.e("onMetadata metadata=" + metadata);
-            }
 
             @Override
             public void onMediaMetadataChanged(MediaMetadata mediaMetadata) {
@@ -368,12 +353,14 @@ public class PlayerActivity extends AppCompatActivity {
         onOrientationChanged(newConfig.orientation);
     }
 
+    @UnstableApi
     @Override
     protected void onResume() {
         super.onResume();
         playerView.onResume();
     }
 
+    @UnstableApi
     @Override
     protected void onPause() {
         super.onPause();

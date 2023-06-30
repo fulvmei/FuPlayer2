@@ -392,11 +392,11 @@ public class DefaultControlView extends BaseControlView {
         boolean enableFastForward = false;
         boolean enableNext = false;
         if (mPlayer != null) {
-            enableSeeking = mPlayer.isCurrentWindowSeekable();
-            enablePrevious = mPlayer.hasPreviousWindow();
+            enableSeeking = mPlayer.isCurrentMediaItemSeekable();
+            enablePrevious = mPlayer.hasPreviousMediaItem();
             enableRewind = mPlayer.isCommandAvailable(Player.COMMAND_SEEK_BACK);
             enableFastForward = mPlayer.isCommandAvailable(Player.COMMAND_SEEK_FORWARD);
-            enableNext = mPlayer.hasNextWindow();
+            enableNext = mPlayer.hasNextMediaItem();
         }
 
         setViewEnabled(enablePrevious, mSkipPrevious);
@@ -689,17 +689,17 @@ public class DefaultControlView extends BaseControlView {
     }
 
     protected void seekToPreviousWindow() {
-        if (mPlayer == null || !mPlayer.hasPreviousWindow()) {
+        if (mPlayer == null || !mPlayer.hasPreviousMediaItem()) {
             return;
         }
-        mPlayer.seekToPreviousWindow();
+        mPlayer.seekToPreviousMediaItem();
     }
 
     protected void seekToNextWindow() {
-        if (mPlayer == null || !mPlayer.hasNextWindow()) {
+        if (mPlayer == null || !mPlayer.hasNextMediaItem()) {
             return;
         }
-        mPlayer.seekToNextWindow();
+        mPlayer.seekToNextMediaItem();
     }
 
     protected void seekBack() {

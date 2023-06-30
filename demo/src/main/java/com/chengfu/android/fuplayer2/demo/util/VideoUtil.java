@@ -1,5 +1,6 @@
 package com.chengfu.android.fuplayer2.demo.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.MediaStore;
@@ -148,6 +149,7 @@ public class VideoUtil {
     }
 
 
+    @SuppressLint("Range")
     public static List<Media> getLocalVideoList(Context context) {
         List<Media> videoList = new ArrayList<>();
         // MediaStore.Video.Thumbnails.DATA:视频缩略图的文件路径

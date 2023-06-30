@@ -50,10 +50,12 @@ public class FuPlayerView extends FrameLayout implements PlayerHolder {
     private int mSurfaceType = -1;
     private int mResizeMode = -1;
 
+    @UnstableApi
     public FuPlayerView(Context context) {
         this(context, null);
     }
 
+    @UnstableApi
     public FuPlayerView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
